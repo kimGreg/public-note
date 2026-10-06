@@ -1,0 +1,67 @@
+# Images the site registry must hold before the stage 2 install: 47 in total.
+# Cluster: model-factory-cluster PR #18 (Kubernetes 1.32.13), its bundle/images.txt.
+# Platform: model-factory-platform PR #13 (airgap branch), its images.txt.
+# model-factory's own images are not listed here.
+
+# --- cluster: Kubespray, Kubernetes 1.32.13 (13) ---
+registry.k8s.io/kube-apiserver:v1.32.13
+registry.k8s.io/kube-controller-manager:v1.32.13
+registry.k8s.io/kube-scheduler:v1.32.13
+registry.k8s.io/kube-proxy:v1.32.13
+registry.k8s.io/pause:3.10
+ghcr.io/kube-vip/kube-vip:v0.8.9
+quay.io/calico/node:v3.29.5
+quay.io/calico/cni:v3.29.5
+quay.io/calico/kube-controllers:v3.29.5
+registry.k8s.io/coredns/coredns:v1.11.3
+registry.k8s.io/dns/k8s-dns-node-cache:1.25.0
+registry.k8s.io/cpa/cluster-proportional-autoscaler:v1.8.8
+docker.io/library/nginx:1.27.4-alpine
+
+# --- platform: Flux (4) ---
+ghcr.io/fluxcd/source-controller:v1.9.5
+ghcr.io/fluxcd/kustomize-controller:v1.9.5
+ghcr.io/fluxcd/helm-controller:v1.6.4
+ghcr.io/fluxcd/notification-controller:v1.9.4
+
+# --- platform: storage (2) ---
+docker.io/rancher/local-path-provisioner:v0.0.37
+busybox:1.37.0
+
+# --- platform: monitoring (11) ---
+quay.io/prometheus/prometheus:v3.15.0-distroless
+quay.io/prometheus-operator/prometheus-operator:v0.94.1
+quay.io/prometheus-operator/prometheus-config-reloader:v0.94.1
+quay.io/prometheus/alertmanager:v0.34.1
+quay.io/prometheus/node-exporter:v1.12.1-distroless
+registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.20.0
+docker.io/grafana/grafana:13.2.2-distroless
+quay.io/kiwigrid/k8s-sidecar:2.11.2
+ghcr.io/jkroepke/kube-webhook-certgen:1.8.9
+docker.io/library/busybox:1.38.0
+docker.io/bats/bats:1.14.0
+
+# --- platform: GPU Operator (10) ---
+nvcr.io/nvidia/gpu-operator:v26.7.1
+nvcr.io/nvidia/k8s/container-toolkit:v1.20.1
+nvcr.io/nvidia/k8s-device-plugin:v0.20.1
+nvcr.io/nvidia/k8s/dcgm-exporter:4.6.1-4.8.4-distroless
+nvcr.io/nvidia/cloud-native/k8s-driver-manager:v0.12.1
+nvcr.io/nvidia/cloud-native/k8s-cc-manager:v0.4.4
+nvcr.io/nvidia/cloud-native/vgpu-device-manager:v0.5.1
+nvcr.io/nvidia/cloud-native/nvidia-sandbox-device-plugin:v0.0.5
+nvcr.io/nvidia/kubevirt-gpu-device-plugin:v1.6.0
+registry.k8s.io/nfd/node-feature-discovery:v0.19.0
+
+# --- platform: Network Operator (4) ---
+nvcr.io/nvidia/cloud-native/network-operator:v26.7.0
+nvcr.io/nvidia/mellanox/k8s-rdma-shared-dev-plugin:network-operator-v26.7.0
+nvcr.io/nvidia/mellanox/multus-cni:network-operator-v26.7.0
+nvcr.io/nvidia/mellanox/node-feature-discovery:network-operator-v26.7.0
+
+# --- platform: Kueue (1) ---
+registry.k8s.io/kueue/kueue:v0.19.6
+
+# --- platform: MLflow (2) ---
+ghcr.io/mlflow/mlflow:v3.14.0-full
+kimgreg/bitnami-postgresql:18.4.0
